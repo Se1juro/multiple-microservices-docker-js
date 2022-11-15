@@ -1,0 +1,53 @@
+# Use postgres/example user/password credentials
+version: "3.8"
+
+services:
+  db:
+    build: ./database
+    restart: always
+    ports:
+      - "5432:5432"
+    hostname: postgres
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    networks:
+      - postgres
+  faker-python:
+    build: ./faker
+    restart: always
+    volumes:
+      - ./faker:/usr/src/app
+    ports:
+      - "3005:3005"
+    networks:
+      - faker
+  api-node:
+    build: ./api
+    ports:
+      - "3006:3006"
+    restart: always
+    depends_on:
+      - db
+      - faker-python
+    networks:
+      - postgres
+      - faker
+  web:
+    build: ./web
+    volumes:
+      - ./web:/usr/share/nginx/html/
+    ports:
+      - "3008:80"
+    environment:
+      - NGINX_PORT=80
+    depends_on:
+      - api-node
+
+volumes:
+  database_data:
+    driver: local
+networks:
+  postgres:
+    driver: bridge
+  faker:
+    driver: bridge
