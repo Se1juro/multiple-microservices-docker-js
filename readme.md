@@ -16,7 +16,10 @@ Realizado por:
 
 # Como ejecutar los tests
 
-npm run test
+Con el servidor del backend pausado:
+
+- cd api
+- npm run test
 
 # Como iniciar solamente el backend
 
