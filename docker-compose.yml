@@ -42,6 +42,14 @@ services:
       - NGINX_PORT=80
     depends_on:
       - api-node
+  web-react:
+    build: ./webElectiva
+    ports:
+      - "3009:80"
+    environment:
+      - NGINX_PORT=80
+    depends_on:
+      - api-node
 
 volumes:
   database_data:
