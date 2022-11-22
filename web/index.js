@@ -48,7 +48,7 @@ const renderUsers = async () => {
 };
 
 const getUsers = async (page = 1) => {
-  const result = await axios.get("http://localhost:3006/api/products", {
+  const result = await axios.get("http://localhost:3006/api/users", {
     params: {
       page,
     },

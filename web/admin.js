@@ -2,13 +2,13 @@ const generateRows = document.getElementById("generate-rows");
 const deleteRows = document.getElementById("delete-rows");
 
 const createNewUsers = async () => {
-  await axios.post("http://localhost:3006/api/products");
+  await axios.post("http://localhost:3006/api/users");
 
   window.location.href = "index.html";
 };
 
 const deleteUsers = async () => {
-  await axios.delete("http://localhost:3006/api/products");
+  await axios.delete("http://localhost:3006/api/users");
 
   window.location.href = "index.html";
 };
