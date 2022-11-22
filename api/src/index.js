@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const productRoutes = require("./routes/products.routes");
+const usersRoutes = require("./routes/users.routes");
 // Constants
 const PORT = process.env.PORT;
 
@@ -11,8 +11,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(productRoutes);
+app.use(usersRoutes);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);
 });
+
+module.exports = { app, server };
