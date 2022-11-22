@@ -38,3 +38,4 @@ npm run test
 - Solamente el API de NodeJS cuenta con test, los tests corren correctamente cuando el sv esta off, ya que utilizan la misma instancia de la app para correrse.
 - Se reutilizo el trabajo anterior porque al menos el 90% ya estaba realizado (Gestor de paquetes, BD, API)
 - Se agregaron: tests, se llevo el servicio web a ReactJS
+- Solamente se probo que los endpoints de la API respondieran con un Body tipo JSON
